@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: travel-planner
+
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: true
+
+  security:
+    secret: ${SECURITY_SECRET}   # JWT secret from Render env var
+    token:
+      expirationTime: 60
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}   # Gmail address
+    password: ${MAIL_PASSWORD}   # App password
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: true
+
+openai:
+  api:
+    key: ${OPENAI_API_KEY}
+    url: https://api.openai.com/v1/chat/completions
+
+weather:
+  api:
+    key: ${WEATHER_API_KEY}
